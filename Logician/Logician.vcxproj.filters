@@ -24,9 +24,6 @@
     <ClCompile Include="src\Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\temp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\String.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

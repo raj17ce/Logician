@@ -13,7 +13,7 @@ int main() {
 	Log log;
 
 	log.setLogLevel(Log::Level::LevelInfo);
-	log.error("Stop!");
+	log.error("Stop!", std::this_thread::get_id(), std::string{"Hello"});
 	log.warning("Careful!");
 	log.info("Fine!");
 }
