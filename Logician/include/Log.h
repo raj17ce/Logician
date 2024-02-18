@@ -1,6 +1,7 @@
 #ifndef __Log_H_
 #define __Log_H_
 
+#include <fstream>
 #include "./Date.h"
 #include "./String.h"
 using Type::String;
@@ -12,12 +13,7 @@ namespace Logging {
 			Debug, Info, Warning, Error, Critical
 		};
 
-	private:
-		Level m_LogLevel;
-		Utility::Date m_Date;
-
-	public:
-		explicit Log() : m_LogLevel{ Level::Warning }, m_Date{ 05,02,2024 } {}
+		explicit Log() : m_LogLevel{ Level::Warning }, m_Date{ 05,02,2024 }, m_IsFileSink{ false } {}
 
 		void setLogLevel(const Log::Level& level) {
 			m_LogLevel = level;
@@ -33,9 +29,9 @@ namespace Logging {
 
 		String getLevelStr(Log::Level level) const;
 
-		void print() const {
-			std::cout << std::endl;
-		}
+		void logToFile(const String& fileName);
+
+		void print() const;
 
 		template<typename T, typename... Args>
 		void print(T arg, Args&&... args) const;
@@ -57,40 +53,37 @@ namespace Logging {
 
 		template<typename... Args>
 		void critical(const String& message, Args&&... args) const;
+
+	private:
+		Level m_LogLevel;
+		Utility::Date m_Date;
+		String m_FileName;
+		mutable std::ofstream m_OutStream;
+		bool m_IsFileSink;
 	};
 
 	template<typename T, typename... Args>
 	void Log::print(T arg, Args&&... args) const {
+		if (m_OutStream) {
+			m_OutStream << arg << " ";
+		}
 		std::cout << arg << " ";
 		print(args...);
 	}
 
-	String Log::getLevelStr(Log::Level level) const {
-		String resultString;
-		switch (level) {
-			case Level::Debug:
-				resultString = "Debug";
-				break;
-			case Level::Info:
-				resultString = "Info";
-				break;
-			case Level::Warning:
-				resultString = "Warning";
-				break;
-			case Level::Error:
-				resultString = "Error";
-				break;
-			case Level::Critical:
-				resultString = "Critical";
-				break;
-		}
-		return resultString;
-	}
-
 	template<typename... Args>
 	void Log::log(Level level, const String& message, Args&&... args) const {
+		if (m_IsFileSink) {
+			m_OutStream.open(m_FileName.getRaw(), std::ios::app);
+			if (m_OutStream) {
+				m_OutStream << m_Date.getStrDate() << " : [" << getLevelStr(level) << "] : " << message << " ";
+			}
+		}
 		std::cout << m_Date.getStrDate() <<" : [" << getLevelStr(level) << "] : " << message << " ";
 		print(args...);
+		if (m_OutStream.is_open()) {
+			m_OutStream.close();
+		}
 	}
 
 	template<typename... Args>

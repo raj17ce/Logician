@@ -1,9 +1,8 @@
 #ifndef __String_H_
 #define __String_H_
 
-#include <iostream>
+#include<iostream>
 #include <cstring>
-
 
 namespace Type {
 	class String {
@@ -27,6 +26,12 @@ namespace Type {
 
 		int length() const{
 			return m_Size;
+		}
+
+		const char* getRaw() const {
+			char* tempBuffer = new char[m_Size + 1];
+			memcpy(tempBuffer, m_Buffer.get(), m_Size + 1);
+			return tempBuffer;
 		}
 
 		char& operator[](const unsigned int&) const;
