@@ -35,9 +35,6 @@ namespace Utility {
 		}
 		void setDate(int, int, int);
 		String getStrDate() const;
-		/*void addDay(int);
-		void addMonth(int);
-		void addYear(int);*/
 	};
 }
 

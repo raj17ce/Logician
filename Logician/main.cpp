@@ -12,8 +12,10 @@ using Utility::Date;
 int main() {
 	Log log;
 
-	log.setLogLevel(Log::Level::LevelInfo);
-	log.error("Stop!", std::this_thread::get_id(), std::string{"Hello"});
-	log.warning("Careful!");
-	log.info("Fine!");
+	log.setLogLevel(Log::Level::Debug);
+	log.debug("Debug log", "Some debug info");
+	log.info("Info log!",15,"Infooo");
+	log.warning("Warning log!",28,500,17.4f);
+	log.error("Stop!", std::this_thread::get_id(), "Hello");
+	log.critical("Critical Log!");	
 }
