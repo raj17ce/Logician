@@ -27,17 +27,7 @@ namespace Logging {
 			m_Date.setDate(dd, mm, yy);
 		}
 
-		String getLevelStr(Log::Level level) const;
-
 		void logToFile(const String& fileName);
-
-		void print() const;
-
-		template<typename T, typename... Args>
-		void print(T arg, Args&&... args) const;
-
-		template<typename... Args>
-		void log(Level level, const String& message, Args&&... args) const;
 
 		template<typename... Args>
 		void debug(const String& message, Args&&... args) const;
@@ -60,6 +50,17 @@ namespace Logging {
 		String m_FileName;
 		mutable std::ofstream m_OutStream;
 		bool m_IsFileSink;
+
+		static String getLevelString(const Log::Level& level);
+		static String getLevelStringColored(const Log::Level& level);
+
+		void print() const;
+
+		template<typename T, typename... Args>
+		void print(T arg, Args&&... args) const;
+
+		template<typename... Args>
+		void log(Level level, const String& message, Args&&... args) const;
 	};
 
 	template<typename T, typename... Args>
@@ -76,10 +77,10 @@ namespace Logging {
 		if (m_IsFileSink) {
 			m_OutStream.open(m_FileName.getRaw(), std::ios::app);
 			if (m_OutStream) {
-				m_OutStream << m_Date.getStrDate() << " : [" << getLevelStr(level) << "] : " << message << " ";
+				m_OutStream << m_Date.getStrDate() << " : [" << getLevelString(level) << "] : " << message << " ";
 			}
 		}
-		std::cout << m_Date.getStrDate() <<" : [" << getLevelStr(level) << "] : " << message << " ";
+		std::cout << m_Date.getStrDate() <<" : [" << getLevelStringColored(level) << "] : " << message << " ";
 		print(args...);
 		if (m_OutStream.is_open()) {
 			m_OutStream.close();

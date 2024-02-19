@@ -2,7 +2,7 @@
 
 using Logging::Log;
 
-String Log::getLevelStr(Log::Level level) const {
+String Log::getLevelString(const Log::Level& level) {
 	String resultString;
 	switch (level) {
 	case Level::Debug:
@@ -19,6 +19,28 @@ String Log::getLevelStr(Log::Level level) const {
 		break;
 	case Level::Critical:
 		resultString = "Critical";
+		break;
+	}
+	return resultString;
+}
+
+String Log::getLevelStringColored(const Log::Level& level) {
+	String resultString;
+	switch (level) {
+	case Level::Debug:
+		resultString = "\x1B[35mDebug\033[0m";
+		break;
+	case Level::Info:
+		resultString = "\x1B[36mInfo\033[0m";
+		break;
+	case Level::Warning:
+		resultString = "\x1B[33mWarning\033[0m";
+		break;
+	case Level::Error:
+		resultString = "\x1B[91mError\033[0m";
+		break;
+	case Level::Critical:
+		resultString = "\x1B[31mCritical\033[0m";
 		break;
 	}
 	return resultString;
