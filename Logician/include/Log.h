@@ -7,20 +7,20 @@
 using Type::String;
 using Utility::Date;
 
-namespace Logging {
+namespace Logician {
+	enum class Level {
+		Debug, Info, Warning, Error, Critical
+	};
 	class Log {
 	public:
-		enum class Level {
-			Debug, Info, Warning, Error, Critical
-		};
+		explicit Log(String name, Level level = Level::Warning) : m_Name{name}, m_LogLevel{level}, m_IsFileSink{false} {}
+		explicit Log(String name, Level level, String fileName) : m_Name{name}, m_LogLevel{level}, m_FileName{fileName}, m_IsFileSink{true} {}
 
-		explicit Log() : m_LogLevel{ Level::Warning }, m_IsFileSink{ false } {}
-
-		void setLogLevel(const Log::Level& level) {
+		void setLevel(const Level& level) {
 			m_LogLevel = level;
 		}
 
-		Level getLogLevel() const {
+		Level getLevel() const {
 			return m_LogLevel;
 		}
 
@@ -43,12 +43,13 @@ namespace Logging {
 
 	private:
 		Level m_LogLevel;
+		String m_Name;
 		String m_FileName;
 		mutable std::ofstream m_OutStream;
 		bool m_IsFileSink;
 
-		static String getLevelString(const Log::Level& level);
-		static String getLevelStringColored(const Log::Level& level);
+		static String getLevelString(const Level& level);
+		static String getLevelStringColored(const Level& level);
 
 		void print() const;
 
@@ -73,10 +74,10 @@ namespace Logging {
 		if (m_IsFileSink) {
 			m_OutStream.open(m_FileName.getRaw(), std::ios::app);
 			if (m_OutStream) {
-				m_OutStream << Date::getCurrentDate().getStrDate() << " : [" << getLevelString(level) << "] : " << message << " ";
+				m_OutStream << Date::getCurrentDate().getStrDate() << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
 			}
 		}
-		std::cout << Date::getCurrentDate().getStrDate() << " : [" << getLevelStringColored(level) << "] : " << message << " ";
+		std::cout << Date::getCurrentDate().getStrDate() << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
 		print(args...);
 		if (m_OutStream.is_open()) {
 			m_OutStream.close();

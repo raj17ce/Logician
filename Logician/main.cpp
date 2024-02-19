@@ -1,22 +1,30 @@
 #include <iostream>
-#include "./include/Log.h"
+#include "./include/Logician.h"
 #include "./include/String.h"
 #include "./include/Exception.h"
 #include "./include/Date.h"
-#include <thread>
-using Logging::Log;
+using Logician::Log;
 using Type::String;
 using Utility::Date;
+using Logician::Level;
 
 int main() {
-	Log log;
+	Log log{"MyLogger"};
+
+	Logician::getDefaultLogger()->logToFile("./logs/default.log");
+
+	Logician::debug("Debug log", "Some debug info");
+	Logician::info("Info log!", 15, "Info");
+	Logician::warning("Warning log!", 28, 500, 17.4f);
+	Logician::error("Stop!", "Hello");
+	Logician::critical("Critical Log!");
 
 	log.logToFile("./logs/main.log");
 
-	log.setLogLevel(Log::Level::Debug);
+	log.setLevel(Level::Debug);
 	log.debug("Debug log", "Some debug info");
 	log.info("Info log!",15,"Info");
 	log.warning("Warning log!",28,500,17.4f);
 	log.error("Stop!", "Hello");
 	log.critical("Critical Log!");
-}
+}	

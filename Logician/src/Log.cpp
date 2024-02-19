@@ -1,8 +1,8 @@
 #include "../include/Log.h"
+using Logician::Log;
+using Logician::Level;
 
-using Logging::Log;
-
-String Log::getLevelString(const Log::Level& level) {
+String Log::getLevelString(const Level& level) {
 	String resultString;
 	switch (level) {
 	case Level::Debug:
@@ -24,7 +24,7 @@ String Log::getLevelString(const Log::Level& level) {
 	return resultString;
 }
 
-String Log::getLevelStringColored(const Log::Level& level) {
+String Log::getLevelStringColored(const Level& level) {
 	String resultString;
 	switch (level) {
 	case Level::Debug:

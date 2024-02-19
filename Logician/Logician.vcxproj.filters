@@ -41,5 +41,8 @@
     <ClInclude Include="include\String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Logician.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

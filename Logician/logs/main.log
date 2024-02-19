@@ -1,15 +1,10 @@
-05/02/2024 : [Debug] : Debug log Some debug info 
-05/02/2024 : [Info] : Info log! 15 Info 
-05/02/2024 : [Warning] : Warning log! 28 500 17.4 
-05/02/2024 : [Error] : Stop! Hello 
-05/02/2024 : [Critical] : Critical Log! 
-05/02/2024 : [Debug] : Debug log Some debug info 
-05/02/2024 : [Info] : Info log! 15 Info 
-05/02/2024 : [Warning] : Warning log! 28 500 17.4 
-05/02/2024 : [Error] : Stop! Hello 
-05/02/2024 : [Critical] : Critical Log! 
-17/04/2003 : [Debug] : Debug log Some debug info 
-17/04/2003 : [Info] : Info log! 15 Info 
-17/04/2003 : [Warning] : Warning log! 28 500 17.4 
-17/04/2003 : [Error] : Stop! Hello 
-17/04/2003 : [Critical] : Critical Log! 
+17/04/2003 : [MyLogger] : [Debug] : Debug log Some debug info 
+17/04/2003 : [MyLogger] : [Info] : Info log! 15 Info 
+17/04/2003 : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
+17/04/2003 : [MyLogger] : [Error] : Stop! Hello 
+17/04/2003 : [MyLogger] : [Critical] : Critical Log! 
+17/04/2003 : [MyLogger] : [Debug] : Debug log Some debug info 
+17/04/2003 : [MyLogger] : [Info] : Info log! 15 Info 
+17/04/2003 : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
+17/04/2003 : [MyLogger] : [Error] : Stop! Hello 
+17/04/2003 : [MyLogger] : [Critical] : Critical Log! 
