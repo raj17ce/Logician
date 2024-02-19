@@ -69,3 +69,8 @@ String Date::getStrDate() const {
 	}
 	return m_StrDate;
 }
+
+Date& Date::getCurrentDate() {
+	static Date date{ 17,04,2003 };
+	return date;
+}

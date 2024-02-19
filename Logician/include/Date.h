@@ -35,6 +35,8 @@ namespace Utility {
 		}
 		void setDate(int, int, int);
 		String getStrDate() const;
+
+		static Date& getCurrentDate();
 	};
 }
 

@@ -5,6 +5,7 @@
 #include "./Date.h"
 #include "./String.h"
 using Type::String;
+using Utility::Date;
 
 namespace Logging {
 	class Log {
@@ -13,7 +14,7 @@ namespace Logging {
 			Debug, Info, Warning, Error, Critical
 		};
 
-		explicit Log() : m_LogLevel{ Level::Warning }, m_Date{ 05,02,2024 }, m_IsFileSink{ false } {}
+		explicit Log() : m_LogLevel{ Level::Warning }, m_IsFileSink{ false } {}
 
 		void setLogLevel(const Log::Level& level) {
 			m_LogLevel = level;
@@ -21,10 +22,6 @@ namespace Logging {
 
 		Level getLogLevel() const {
 			return m_LogLevel;
-		}
-
-		void setDate(int dd, int mm, int yy) {
-			m_Date.setDate(dd, mm, yy);
 		}
 
 		void logToFile(const String& fileName);
@@ -46,7 +43,6 @@ namespace Logging {
 
 	private:
 		Level m_LogLevel;
-		Utility::Date m_Date;
 		String m_FileName;
 		mutable std::ofstream m_OutStream;
 		bool m_IsFileSink;
@@ -77,10 +73,10 @@ namespace Logging {
 		if (m_IsFileSink) {
 			m_OutStream.open(m_FileName.getRaw(), std::ios::app);
 			if (m_OutStream) {
-				m_OutStream << m_Date.getStrDate() << " : [" << getLevelString(level) << "] : " << message << " ";
+				m_OutStream << Date::getCurrentDate().getStrDate() << " : [" << getLevelString(level) << "] : " << message << " ";
 			}
 		}
-		std::cout << m_Date.getStrDate() <<" : [" << getLevelStringColored(level) << "] : " << message << " ";
+		std::cout << Date::getCurrentDate().getStrDate() << " : [" << getLevelStringColored(level) << "] : " << message << " ";
 		print(args...);
 		if (m_OutStream.is_open()) {
 			m_OutStream.close();
