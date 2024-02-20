@@ -1,10 +1,8 @@
 #include <iostream>
 #include "./include/Logician.h"
-#include "./include/String.h"
 #include "./include/Exception.h"
 #include "./include/Date.h"
 using Logician::Log;
-using Type::String;
 using Utility::Date;
 using Logician::Level;
 

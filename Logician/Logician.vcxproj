@@ -149,19 +149,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="include\Exception.h" />
-    <ClCompile Include="src\Date.cpp" />
-    <ClCompile Include="src\Log.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\String.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\Date.h" />
-    <ClInclude Include="include\Logician.h" />
-    <ClInclude Include="include\Log.h" />
-    <ClInclude Include="include\String.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

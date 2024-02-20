@@ -1,37 +1,37 @@
 #ifndef __Exception_H_
 #define __Exception_H_
 
-#include "./String.h"
-using Type::String;
+#include <string>
 
 namespace Exception {
 	class MyException {
-	protected:
-		String m_Message;
 	public:
-		MyException(const String& txt="Something went wrong") : m_Message{txt} {};
+		MyException(const std::string& txt="Something went wrong") : m_Message{txt} {};
 
-		virtual String getMessage() const {
+		virtual std::string getMessage() const {
 			return m_Message;
 		};
 
 		virtual ~MyException() = default;
+
+	protected:
+		std::string m_Message;
 	};
 
 	class IndexOutOfBoundException : public MyException {
 	public:
-		IndexOutOfBoundException(const String& txt="") : MyException(txt) {};
+		IndexOutOfBoundException(const std::string& txt="") : MyException(txt) {};
 
-		String getMessage() const override {
+		std::string getMessage() const override {
 			return "[IndexOutOfBoundException] : " + m_Message;
 		}
 	};
 
 	class InvalidDateException : public MyException {
 	public:
-		InvalidDateException(const String& txt = "") : MyException(txt) {};
+		InvalidDateException(const std::string& txt = "") : MyException(txt) {};
 
-		String getMessage() const override {
+		std::string getMessage() const override {
 			return "[InvalidDateException] : " + m_Message;
 		}
 	};

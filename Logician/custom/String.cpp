@@ -5,12 +5,12 @@ using Type::String;
 
 char& String::operator[](const unsigned int& index) const {
 	if (index < 0 || index >= m_Size) {
-		throw InvalidDateException{ "String index " + toString(index) + " is invalid" };
+		throw InvalidDateException{ "String index " + std::to_string(index) + " is invalid" };
 	}
 	return m_Buffer.get()[index];
 }
 
-unsigned int String::getLength(const char* str){
+unsigned int String::getLength(const char* str) {
 	auto size{ 0U };
 
 	while (str[size] != '\0') {
@@ -20,7 +20,7 @@ unsigned int String::getLength(const char* str){
 	return size;
 }
 
-String String::toString(const int& num){
+String String::toString(const int& num) {
 	auto temp{num};
 	auto size{ 0U };
 	auto isNegative{ (num < 0) };
@@ -100,7 +100,7 @@ String& String::operator=(String&& str) noexcept {
 	return *this;
 }
 
-String& String::toLowerCase(){
+String& String::toLowerCase() {
 	for (auto i = 0U; i < m_Size; i++) {
 		if (m_Buffer[i] >= 65 && m_Buffer[i] <= 90) {
 			m_Buffer[i] += 32;

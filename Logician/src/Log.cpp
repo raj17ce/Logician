@@ -2,8 +2,8 @@
 using Logician::Log;
 using Logician::Level;
 
-String Log::getLevelString(const Level& level) {
-	String resultString;
+std::string Log::getLevelString(const Level& level) {
+	std::string resultString;
 	switch (level) {
 	case Level::Debug:
 		resultString = "Debug";
@@ -24,8 +24,8 @@ String Log::getLevelString(const Level& level) {
 	return resultString;
 }
 
-String Log::getLevelStringColored(const Level& level) {
-	String resultString;
+std::string Log::getLevelStringColored(const Level& level) {
+	std::string resultString;
 	switch (level) {
 	case Level::Debug:
 		resultString = "\x1B[35mDebug\033[0m";
@@ -46,7 +46,7 @@ String Log::getLevelStringColored(const Level& level) {
 	return resultString;
 }
 
-void Log::logToFile(const String& fileName) {
+void Log::logToFile(const std::string& fileName) {
 	m_IsFileSink = true;
 	m_FileName = fileName;
 }
