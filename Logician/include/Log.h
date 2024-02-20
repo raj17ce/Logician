@@ -3,6 +3,8 @@
 
 #include <fstream>
 #include <chrono>
+#include <ctime>
+#include <iomanip>
 #include <string>
 #include <iostream>
 
@@ -70,13 +72,16 @@ namespace Logician {
 
 	template<typename... Args>
 	void Log::log(Level level, const std::string& message, Args&&... args) const {
+		time_t now_t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		std::tm now_buffer;
+		localtime_s(&now_buffer, &now_t);
 		if (m_IsFileSink) {
 			m_OutStream.open(m_FileName, std::ios::app);
 			if (m_OutStream) {
-				m_OutStream << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
+				m_OutStream << std::put_time(&now_buffer, "%e-%m-%Y %T") << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
 			}
 		}
-		std::cout << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
+		std::cout << std::put_time(&now_buffer, "%e-%m-%Y %T") << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
 		print(args...);
 		if (m_OutStream.is_open()) {
 			m_OutStream.close();

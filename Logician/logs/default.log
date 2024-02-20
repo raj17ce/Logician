@@ -1,11 +1,5 @@
- : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
- : [defaultLogger] : [Error] : Stop! Hello 
- : [defaultLogger] : [Critical] : Critical Log! 
- : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
- : [defaultLogger] : [Error] : Stop! Hello 
- : [defaultLogger] : [Critical] : Critical Log! 
- : [defaultLogger] : [Debug] : Debug log Some debug info 
- : [defaultLogger] : [Info] : Info log! 15 Info 
- : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
- : [defaultLogger] : [Error] : Stop! Hello 
- : [defaultLogger] : [Critical] : Critical Log! 
+20-02-2024 18:46:56 : [defaultLogger] : [Debug] : Debug log Some debug info 
+20-02-2024 18:46:56 : [defaultLogger] : [Info] : Info log! 15 Info 
+20-02-2024 18:46:56 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+20-02-2024 18:46:56 : [defaultLogger] : [Error] : Stop! Hello 
+20-02-2024 18:46:56 : [defaultLogger] : [Critical] : Critical Log! 

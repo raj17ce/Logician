@@ -1,15 +1,5 @@
- : [MyLogger] : [Debug] : Debug log Some debug info 
- : [MyLogger] : [Info] : Info log! 15 Info 
- : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
- : [MyLogger] : [Error] : Stop! Hello 
- : [MyLogger] : [Critical] : Critical Log! 
- : [MyLogger] : [Debug] : Debug log Some debug info 
- : [MyLogger] : [Info] : Info log! 15 Info 
- : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
- : [MyLogger] : [Error] : Stop! Hello 
- : [MyLogger] : [Critical] : Critical Log! 
- : [MyLogger] : [Debug] : Debug log Some debug info 
- : [MyLogger] : [Info] : Info log! 15 Info 
- : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
- : [MyLogger] : [Error] : Stop! Hello 
- : [MyLogger] : [Critical] : Critical Log! 
+20-02-2024 18:46:56 : [MyLogger] : [Debug] : Debug log Some debug info 
+20-02-2024 18:46:56 : [MyLogger] : [Info] : Info log! 15 Info 
+20-02-2024 18:46:56 : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
+20-02-2024 18:46:56 : [MyLogger] : [Error] : Stop! Hello 
+20-02-2024 18:46:56 : [MyLogger] : [Critical] : Critical Log! 
