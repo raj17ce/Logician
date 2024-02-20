@@ -2,9 +2,9 @@
 #define __Log_H_
 
 #include <fstream>
-#include "./Date.h"
+#include <chrono>
 #include <string>
-using Utility::Date;
+#include <iostream>
 
 namespace Logician {
 	enum class Level {
@@ -73,10 +73,10 @@ namespace Logician {
 		if (m_IsFileSink) {
 			m_OutStream.open(m_FileName, std::ios::app);
 			if (m_OutStream) {
-				m_OutStream << Date::getCurrentDate().getStrDate() << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
+				m_OutStream << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
 			}
 		}
-		std::cout << Date::getCurrentDate().getStrDate() << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
+		std::cout << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
 		print(args...);
 		if (m_OutStream.is_open()) {
 			m_OutStream.close();

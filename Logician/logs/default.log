@@ -1,0 +1,11 @@
+ : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+ : [defaultLogger] : [Error] : Stop! Hello 
+ : [defaultLogger] : [Critical] : Critical Log! 
+ : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+ : [defaultLogger] : [Error] : Stop! Hello 
+ : [defaultLogger] : [Critical] : Critical Log! 
+ : [defaultLogger] : [Debug] : Debug log Some debug info 
+ : [defaultLogger] : [Info] : Info log! 15 Info 
+ : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+ : [defaultLogger] : [Error] : Stop! Hello 
+ : [defaultLogger] : [Critical] : Critical Log! 

@@ -18,6 +18,24 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="custom\Date.cpp" />
+    <ClCompile Include="custom\String.cpp" />
+    <ClCompile Include="include\Registry.h" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Log.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="custom\Date.h" />
+    <ClInclude Include="custom\String.h" />
+    <ClInclude Include="custom\Exception.h" />
+    <ClInclude Include="include\Log.h" />
+    <ClInclude Include="include\Logician.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="logs\default.log" />
+    <Text Include="logs\main.log" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

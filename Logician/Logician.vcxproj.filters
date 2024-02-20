@@ -1,2 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="include\Registry.h" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Log.cpp" />
+    <ClCompile Include="custom\Date.cpp" />
+    <ClCompile Include="custom\String.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Logician.h" />
+    <ClInclude Include="include\Log.h" />
+    <ClInclude Include="custom\Exception.h" />
+    <ClInclude Include="custom\Date.h" />
+    <ClInclude Include="custom\String.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="logs\default.log" />
+    <Text Include="logs\main.log" />
+  </ItemGroup>
+</Project>

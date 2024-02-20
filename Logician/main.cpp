@@ -1,15 +1,13 @@
 #include <iostream>
 #include "./include/Logician.h"
-#include "./include/Exception.h"
-#include "./include/Date.h"
 using Logician::Log;
-using Utility::Date;
 using Logician::Level;
 
 int main() {
 	Log log{"MyLogger"};
 
 	Logician::getDefaultLogger()->logToFile("./logs/default.log");
+	Logician::getDefaultLogger()->setLevel(Level::Debug);
 
 	Logician::debug("Debug log", "Some debug info");
 	Logician::info("Info log!", 15, "Info");

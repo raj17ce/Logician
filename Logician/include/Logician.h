@@ -2,43 +2,42 @@
 #define __DefaultLogger_H__
 
 #include "./Log.h"
+#include "./Registry.h"
 using Logician::Log;
 
 namespace Logician {
 
-	static auto defaultLogger = std::make_shared<Log>("defaultLogger", Level::Debug);
+	inline void setDefaultLogger(std::shared_ptr<Log> ptr) {
+		Registry::instance().setDefaultLogger(ptr);
+	} 
 
-	std::shared_ptr<Log> getDefaultLogger() {
-		return defaultLogger;
-	}
-
-	void setDefaultLogger(std::shared_ptr<Log> ptr) {
-		defaultLogger = ptr;
+	inline std::shared_ptr<Log> getDefaultLogger() {
+		return Registry::instance().getDefaultLogger();
 	}
 
 	template<typename... Args>
 	void debug(const std::string& message, Args&&... args) {
-		defaultLogger->debug(message, args...);
+		Registry::instance().getDefaultLogger()->debug(message, args...);
 	}
 
 	template<typename... Args>
 	void info(const std::string& message, Args&&... args) {
-		defaultLogger->info(message, args...);
+		Registry::instance().getDefaultLogger()->info(message, args...);
 	}
 
 	template<typename... Args>
 	void warning(const std::string& message, Args&&... args) {
-		defaultLogger->warning(message, args...);
+		Registry::instance().getDefaultLogger()->warning(message, args...);
 	}
 
 	template<typename... Args>
 	void error(const std::string& message, Args&&... args) {
-		defaultLogger->error(message, args...);
+		Registry::instance().getDefaultLogger()->error(message, args...);
 	}
 
 	template<typename... Args>
 	void critical(const std::string& message, Args&&... args) {
-		defaultLogger->critical(message, args...);
+		Registry::instance().getDefaultLogger()->critical(message, args...);
 	}
 }
 
