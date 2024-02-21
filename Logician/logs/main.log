@@ -1,5 +1,5 @@
-20-02-2024 18:46:56 : [MyLogger] : [Debug] : Debug log Some debug info 
-20-02-2024 18:46:56 : [MyLogger] : [Info] : Info log! 15 Info 
-20-02-2024 18:46:56 : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
-20-02-2024 18:46:56 : [MyLogger] : [Error] : Stop! Hello 
-20-02-2024 18:46:56 : [MyLogger] : [Critical] : Critical Log! 
+21-02-2024 09:40:03 : [MyLogger] : [Debug] : Debug log Some debug info 
+21-02-2024 09:40:03 : [MyLogger] : [Info] : Info log! 15 Info 
+21-02-2024 09:40:03 : [MyLogger] : [Warning] : Warning log! 28 500 17.4 
+21-02-2024 09:40:03 : [MyLogger] : [Error] : Stop! Hello 
+21-02-2024 09:40:03 : [MyLogger] : [Critical] : Critical Log! 

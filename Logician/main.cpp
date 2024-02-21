@@ -1,7 +1,9 @@
 #include <iostream>
 #include "./include/Logician.h"
+#include "./include/Timer.h"
 using Logician::Log;
 using Logician::Level;
+using Utility::Timer;
 
 int main() {
 	Log log{"MyLogger"};
@@ -23,4 +25,10 @@ int main() {
 	log.warning("Warning log!",28,500,17.4f);
 	log.error("Stop!", "Hello");
 	log.critical("Critical Log!");
+
+	Timer t1;
+
+	for (int i = 0; i < 100000000; i++) {
+	
+	}
 }	

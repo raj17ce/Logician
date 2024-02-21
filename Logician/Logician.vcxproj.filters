@@ -13,6 +13,7 @@
     <ClInclude Include="custom\Exception.h" />
     <ClInclude Include="custom\Date.h" />
     <ClInclude Include="custom\String.h" />
+    <ClInclude Include="include\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="logs\default.log" />

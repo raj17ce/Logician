@@ -31,6 +31,7 @@
     <ClInclude Include="custom\Exception.h" />
     <ClInclude Include="include\Log.h" />
     <ClInclude Include="include\Logician.h" />
+    <ClInclude Include="include\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="logs\default.log" />
