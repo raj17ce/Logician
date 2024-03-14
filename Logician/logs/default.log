@@ -3,3 +3,43 @@
 21-02-2024 09:40:03 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
 21-02-2024 09:40:03 : [defaultLogger] : [Error] : Stop! Hello 
 21-02-2024 09:40:03 : [defaultLogger] : [Critical] : Critical Log! 
+22/02/2024 14:50:40 : [defaultLogger] : [Debug] : Debug log Some debug info 
+22/02/2024 14:50:40 : [defaultLogger] : [Info] : Info log! 15 Info 
+22/02/2024 14:50:40 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+22/02/2024 14:50:40 : [defaultLogger] : [Error] : Stop! Hello 
+22/02/2024 14:50:40 : [defaultLogger] : [Critical] : Critical Log! 
+26/02/2024 10:21:42 : [defaultLogger] : [Debug] : Debug log Some debug info 
+26/02/2024 10:21:42 : [defaultLogger] : [Info] : Info log! 15 Info 
+26/02/2024 10:21:42 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+26/02/2024 10:21:42 : [defaultLogger] : [Error] : Stop! Hello 
+26/02/2024 10:21:42 : [defaultLogger] : [Critical] : Critical Log! 
+14/03/2024 14:30:46 : [defaultLogger] : [Debug] : Debug log Some debug info 
+14/03/2024 14:30:46 : [defaultLogger] : [Info] : Info log! 15 Info 
+14/03/2024 14:30:46 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+14/03/2024 14:30:46 : [defaultLogger] : [Error] : Stop! Hello 
+14/03/2024 14:30:46 : [defaultLogger] : [Critical] : Critical Log! 
+14/03/2024 14:31:04 : [defaultLogger] : [Debug] : Debug log Some debug info 
+14/03/2024 14:31:04 : [defaultLogger] : [Info] : Info log! 15 Info 
+14/03/2024 14:31:04 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+14/03/2024 14:31:04 : [defaultLogger] : [Error] : Stop! Hello 
+14/03/2024 14:31:04 : [defaultLogger] : [Critical] : Critical Log! 
+14/03/2024 14:41:32 : [defaultLogger] : [Debug] : Debug log Some debug info 
+14/03/2024 14:41:32 : [defaultLogger] : [Info] : Info log! 15 Info 
+14/03/2024 14:41:32 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+14/03/2024 14:41:32 : [defaultLogger] : [Error] : Stop! Hello 
+14/03/2024 14:41:32 : [defaultLogger] : [Critical] : Critical Log! 
+14/03/2024 14:42:19 : [defaultLogger] : [Debug] : Debug log Some debug info 
+14/03/2024 14:42:19 : [defaultLogger] : [Info] : Info log! 15 Info 
+14/03/2024 14:42:19 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+14/03/2024 14:42:19 : [defaultLogger] : [Error] : Stop! Hello 
+14/03/2024 14:42:19 : [defaultLogger] : [Critical] : Critical Log! 
+14/03/2024 14:44:16 : [defaultLogger] : [Debug] : Debug log Some debug info 
+14/03/2024 14:44:16 : [defaultLogger] : [Info] : Info log! 15 Info 
+14/03/2024 14:44:16 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+14/03/2024 14:44:16 : [defaultLogger] : [Error] : Stop! Hello 
+14/03/2024 14:44:16 : [defaultLogger] : [Critical] : Critical Log! 
+14/03/2024 14:52:26 : [defaultLogger] : [Debug] : Debug log Some debug info 
+14/03/2024 14:52:26 : [defaultLogger] : [Info] : Info log! 15 Info 
+14/03/2024 14:52:26 : [defaultLogger] : [Warning] : Warning log! 28 500 17.4 
+14/03/2024 14:52:26 : [defaultLogger] : [Error] : Stop! Hello 
+14/03/2024 14:52:26 : [defaultLogger] : [Critical] : Critical Log! 

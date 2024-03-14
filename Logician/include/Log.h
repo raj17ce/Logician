@@ -2,11 +2,12 @@
 #define __Log_H_
 
 #include <fstream>
-#include <chrono>
-#include <ctime>
-#include <iomanip>
+#include <filesystem>
+#include <string_view>
 #include <string>
 #include <iostream>
+#include "./Timer.h"
+using Utility::Timer;
 
 namespace Logician {
 	enum class Level {
@@ -14,8 +15,8 @@ namespace Logician {
 	};
 	class Log {
 	public:
-		explicit Log(std::string name, Level level = Level::Warning) : m_Name{name}, m_LogLevel{level}, m_IsFileSink{false} {}
-		explicit Log(std::string name, Level level, std::string fileName) : m_Name{ name }, m_LogLevel{ level }, m_FileName{ fileName }, m_IsFileSink{ true } {}
+		explicit Log(const std::string_view& name, Level level = Level::Warning) : m_Name{name}, m_LogLevel{level}, m_IsFileSink{false} {}
+		explicit Log(const std::string_view& name, Level level, const char * fileName) : m_Name{ name }, m_LogLevel{ level }, m_FileName{ fileName }, m_IsFileSink{ true } {}
 
 		void setLevel(const Level& level) {
 			m_LogLevel = level;
@@ -25,27 +26,27 @@ namespace Logician {
 			return m_LogLevel;
 		}
 
-		void logToFile(const std::string& fileName);
+		void logToFile(const std::string_view& fileName);
 
 		template<typename... Args>
-		void debug(const std::string& message, Args&&... args) const;
+		void debug(const std::string_view& message, Args&&... args) const;
 
 		template<typename... Args>
-		void info(const std::string& message, Args&&... args) const;
+		void info(const std::string_view& message, Args&&... args) const;
 
 		template<typename... Args>
-		void warning(const std::string& message, Args&&... args) const;
+		void warning(const std::string_view& message, Args&&... args) const;
 
 		template<typename... Args>
-		void error(const std::string& message, Args&&... args) const;
+		void error(const std::string_view& message, Args&&... args) const;
 
 		template<typename... Args>
-		void critical(const std::string& message, Args&&... args) const;
+		void critical(const std::string_view& message, Args&&... args) const;
 
 	private:
 		Level m_LogLevel;
-		std::string m_Name;
-		std::string m_FileName;
+		std::string_view m_Name;
+		std::filesystem::path m_FileName;
 		mutable std::ofstream m_OutStream;
 		bool m_IsFileSink;
 
@@ -58,7 +59,7 @@ namespace Logician {
 		void print(T arg, Args&&... args) const;
 
 		template<typename... Args>
-		void log(Level level, const std::string& message, Args&&... args) const;
+		void log(Level level, const std::string_view& message, Args&&... args) const;
 	};
 
 	template<typename T, typename... Args>
@@ -71,17 +72,14 @@ namespace Logician {
 	}
 
 	template<typename... Args>
-	void Log::log(Level level, const std::string& message, Args&&... args) const {
-		time_t now_t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-		std::tm now_buffer;
-		localtime_s(&now_buffer, &now_t);
+	void Log::log(Level level, const std::string_view& message, Args&&... args) const {
 		if (m_IsFileSink) {
-			m_OutStream.open(m_FileName, std::ios::app);
+			m_OutStream.open(m_FileName.string(), std::ios::app);
 			if (m_OutStream) {
-				m_OutStream << std::put_time(&now_buffer, "%e-%m-%Y %T") << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
-			}
+				m_OutStream << Timer::getCurrentTimeString() << " : [" << m_Name << "] : [" << getLevelString(level) << "] : " << message << " ";
+			} 
 		}
-		std::cout << std::put_time(&now_buffer, "%e-%m-%Y %T") << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
+		std::cout << Timer::getCurrentTimeString() << " : [" << m_Name << "] : [" << getLevelStringColored(level) << "] : " << message << " ";
 		print(args...);
 		if (m_OutStream.is_open()) {
 			m_OutStream.close();
@@ -89,35 +87,35 @@ namespace Logician {
 	}
 
 	template<typename... Args>
-	void Log::debug(const std::string& message, Args&&... args) const {
+	void Log::debug(const std::string_view& message, Args&&... args) const {
 		if (m_LogLevel <= Level::Debug) {
 			log(Level::Debug, message, args...);
 		}
 	}
 
 	template<typename... Args>
-	void Log::info(const std::string& message, Args&&... args) const {
+	void Log::info(const std::string_view& message, Args&&... args) const {
 		if (m_LogLevel <= Level::Info) {
 			log(Level::Info, message, args...);
 		}
 	}
 
 	template<typename... Args>
-	void Log::warning(const std::string& message, Args&&... args) const {
+	void Log::warning(const std::string_view& message, Args&&... args) const {
 		if (m_LogLevel <= Level::Warning) {
 			log(Level::Warning, message, args...);
 		}
 	}
 
 	template<typename... Args>
-	void Log::error(const std::string& message, Args&&... args) const {
+	void Log::error(const std::string_view& message, Args&&... args) const {
 		if (m_LogLevel <= Level::Error) {
 			log(Level::Error, message, args...);
 		}
 	}
 
 	template<typename... Args>
-	void Log::critical(const std::string& message, Args&&... args) const {
+	void Log::critical(const std::string_view& message, Args&&... args) const {
 		if (m_LogLevel <= Level::Critical) {
 			log(Level::Critical, message, args...);
 		}

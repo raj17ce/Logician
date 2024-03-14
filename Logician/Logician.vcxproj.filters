@@ -4,15 +4,10 @@
     <ClCompile Include="include\Registry.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Log.cpp" />
-    <ClCompile Include="custom\Date.cpp" />
-    <ClCompile Include="custom\String.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Logician.h" />
     <ClInclude Include="include\Log.h" />
-    <ClInclude Include="custom\Exception.h" />
-    <ClInclude Include="custom\Date.h" />
-    <ClInclude Include="custom\String.h" />
     <ClInclude Include="include\Timer.h" />
   </ItemGroup>
   <ItemGroup>

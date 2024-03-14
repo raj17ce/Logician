@@ -1,6 +1,5 @@
 #include "../include/Log.h"
-using Logician::Log;
-using Logician::Level;
+using Logician::Log,Logician::Level;
 
 std::string Log::getLevelString(const Level& level) {
 	std::string resultString;
@@ -46,7 +45,7 @@ std::string Log::getLevelStringColored(const Level& level) {
 	return resultString;
 }
 
-void Log::logToFile(const std::string& fileName) {
+void Log::logToFile(const std::string_view& fileName) {
 	m_IsFileSink = true;
 	m_FileName = fileName;
 }
